@@ -1,11 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import './UserList.scss';
+import { User } from '../../../types/User';
 
-interface User {
-    login: string;
-    id: number;
-    avatar_url: string;
-}
 
 interface UserListProps {
     users: User[];
@@ -13,11 +9,13 @@ interface UserListProps {
 
 const UserList: React.FC<UserListProps> = ({ users }) => {
     return (
-        <ul>
+        <ul className="user-list">
             {users.map(user => (
-                <li key={user.id}>
-                    <img src={user.avatar_url} alt={`${user.login} avatar`} width="50" />
-                    <Link to={`/user/${user.login}`}>{user.login}</Link>
+                <li key={user.id} className="user-list-item">
+                    <div className="user-content">
+                        <div className="user-id">{user.id}</div>
+                        <Link to={`/user/${user.login}`} className="user-link">{user.login}</Link>
+                    </div>
                 </li>
             ))}
         </ul>

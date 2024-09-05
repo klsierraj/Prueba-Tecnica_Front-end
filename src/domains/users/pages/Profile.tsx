@@ -1,5 +1,4 @@
-// src/domains/users/pages/Profile.tsx
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../../../components/Loader';
 import { getUser } from '../services/searchUsersService';
