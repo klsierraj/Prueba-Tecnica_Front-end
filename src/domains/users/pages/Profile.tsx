@@ -1,16 +1,10 @@
 import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../../../components/Loader';
+import {Loader} from '../../../components/Loader';
 import { getUser } from '../services/searchUsersService';
+import { User } from '../../../types/User';
 
-interface User {
-    login: string;
-    id: number;
-    avatar_url: string;
-    name: string;
-    bio: string;
-    // Añade otros campos según sea necesario
-}
+
 
 const Profile: React.FC = () => {
     const { username } = useParams<{ username: string }>();
@@ -47,7 +41,7 @@ const Profile: React.FC = () => {
                     <h1>{user.name || user.login}</h1>
                     <img src={user.avatar_url} alt={`${user.login} avatar`} width="100" />
                     <p>{user.bio}</p>
-                    {/* Aquí puedes agregar más información del usuario */}
+
                 </>
             )}
         </div>

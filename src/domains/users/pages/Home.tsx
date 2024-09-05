@@ -1,7 +1,7 @@
 import SearchBar from '../../../components/SearchBar';
 import UserList from '../components/UserList';
 import BarChartComponent from '../../../components/BarChartComponent';
-import Loader from '../../../components/Loader';
+import {Loader} from '../../../components/Loader';
 import { useSearch } from '../../../context/SearchContext';
 import { User } from '../../../types/User';
 
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         <Loader />
       ) : isError ? (
         <p>Error al obtener los usuarios</p>
-      ) : users.length > 0 ? (
+      ) : users && users.length > 0 ? ( // Verificar que 'users' no sea undefined
         <>
           <UserList users={users} />
           <BarChartComponent<User>
